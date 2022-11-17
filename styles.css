@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+:root {
+    --dark-desaturated-blue: hsl(238, 29%, 16%);
+    --soft-red: hsl(14, 88%, 65%);
+    --soft-violet: hsl(273, 75%, 66%);
+    --soft-blue: hsl(240, 73%, 65%);
+    --verydark-grayish-blue: hsl(237, 12%, 33%);
+    --dark-grayish-blue: hsl(240, 6%, 50%);
+    --light-grayish-blue: hsl(240, 5%, 91%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    background: var(--soft-violet);
+    /* fallback color */
+    background: linear-gradient(to bottom, var(--soft-violet), var(--soft-blue));
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.card {
+    background-color: white;
+    width: 90%;
+    max-width: 370px;
+    margin: auto;
+    border-radius: 2rem;
+    margin-top: 10rem;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+
+/* mobile images */
+
+.mobile-img-wrapper {
+    position: relative;
+    text-align: center;
+    margin-top: -145px;
+    margin-bottom: 2rem;
+}
+
+.mobile-img-wrapper>img:first-child {
+    width: 250px;
+    height: 250px;
+}
+
+.mobile-img-wrapper img:nth-child(2) {
+    position: absolute;
+    bottom: 0;
+    left: 55px;
+}
+
+
+/* desktop images */
+
+.desktop-img-wrapper {
+    position: relative;
+    height: 100%;
+    display: none;
+}
+
+.desktop-inner-img-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.desktop-inner-img-wrapper img {
+    width: 350px;
+    margin-top: 100px;
+    margin-left: -50px;
+}
+
+.desktop-img-wrapper .box {
+    width: 125px;
+    position: absolute;
+    top: 200px;
+    left: 0;
+    margin-left: -70px;
+}
+
+.desktop-img-wrapper .shadow {
+    width: 350px;
+    height: 350px;
+    position: absolute;
+    left: 0;
+}
+
+
+/* accordion */
+
+.accordion {
+    padding: 1.5rem;
+    padding-top: 0;
+}
+
+.title {
+    text-align: center;
+    font-weight: bold;
+    color: var(--verydark-grayish-blue);
+    margin-bottom: 2rem;
+}
+
+.accordion li {
+    list-style: none;
+}
+
+.accordion li label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--dark-grayish-blue);
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+    padding: 0.5rem 0;
+}
+
+.accordion li label:hover {
+    color: var(--soft-red);
+}
+
+.accordion li input[type='radio'] {
+    display: none;
+    color: var(--dark-grayish-blue);
+}
+
+.content {
+    color: var(--dark-grayish-blue);
+    max-height: 0;
+    overflow: hidden;
+    font-size: 14px;
+}
+
+hr {
+    margin: 10px 0;
+    color: var(--light-grayish-blue);
+    opacity: 0.5;
+}
+
+
+/* make label text bold and black when the radio button selected */
+
+.accordion li input[type='radio']:checked+label {
+    font-weight: bold;
+    color: var(--dark-desaturated-blue);
+}
+
+
+/* rotate arrow icon when radio button selected */
+
+.accordion li input[type='radio']:checked+label img {
+    transform: rotate(180deg);
+    transition: all 0.3s;
+}
+
+
+/* show content when radio button selected */
+
+.accordion li input[type='radio']:checked+label+.content {
+    max-height: fit-content;
+    padding-top: 0.5rem;
+}
+
+.attribution {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 1024px) {
+    .card {
+        position: relative;
+        grid-template-columns: 1fr 1fr;
+        /* gap: 2rem; */
+        width: 50%;
+        max-width: 1100px;
+    }
+    .accordion {
+        padding: 4rem;
+        padding-left: 0;
+    }
+    .mobile-img-wrapper {
+        display: none;
+    }
+    .desktop-img-wrapper {
+        display: block;
+    }
+}
