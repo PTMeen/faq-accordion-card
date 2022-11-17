@@ -194,4 +194,7 @@ hr {
     .desktop-img-wrapper {
         display: block;
     }
+    .title {
+        text-align: left;
+    }
 }
